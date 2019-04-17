@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Evento Anual
+    </ion-title>
+    <ion-segment>
+      <ion-segment-button (click)="mostrarInvitados()">
+        <ion-label>Invitados</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="mostrarIngresos()">
+        <ion-label>Ingresos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="invitado">
+  <div>
+    <ion-list *ngFor="let invitado of listaInvitado">
+      <div class="dis">
+        <ion-item>
+          Nombre :{{ invitado.name }} {{invitado.surname}} <ion-icon name="checkmark-circle-outline" color="success"
+            (click)="confirmarIngreso(invitado)" slot="end"></ion-icon>
+          <br>
+          Pais : {{invitado.region}}
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="ingresado">
+  <div>
+    <ion-list *ngFor="let invitado of listaIngresado">
+      <div class="dis">
+        <ion-item>
+          Nombre :{{ invitado.name }} {{invitado.surname}} <ion-icon name="close-circle-outline" color="danger"
+            (click)="confirmarEliminacion(invitado)" slot="end">
+            <br>
+            Pais : {{invitado.region}}
+          </ion-icon>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
+

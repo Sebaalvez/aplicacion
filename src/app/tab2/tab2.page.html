@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Sorteo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="sinGanador">
+  <div>
+    <ion-list *ngFor="let invitado of listaSorteo">
+      <div class="dis">
+        <ion-item>
+          Nombre :{{ invitado.name }} {{invitado.surname}} <ion-icon name="checkmark-circle-outline" color="success"
+            (click)="confirmarIngreso(invitado)" slot="end"></ion-icon>
+          <br>
+          Pais : {{invitado.region}}
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+  <ion-button (click)="realizarSorteo()"></ion-button>
+
+</ion-content>
+
+<ion-content *ngIf="conGanador">
+
+  <div class="estilo">
+    <div class="dis">
+    El ganador es :
+    <br>
+     {{ganador}}
+    </div>
+  </div>
+
+</ion-content>
